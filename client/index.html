@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/qlogo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Q Rentals</title>
+    <style>
+      .loader-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .spinning-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        border: 4px solid #2563eb;
+        border-top-color: #c1c1c1;
+        animation: spinner 1s linear infinite;
+      }
+
+      .q-logo {
+        width: 32px;
+        height: 32px;
+        animation: counter-spin 1s linear infinite;
+      }
+
+      @keyframes spinner {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes counter-spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(-360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="loader-container" id="loading-icon">
+        <div class="spinning-logo">
+          <img src="/qlogo.svg" alt="Q Logo" class="q-logo" />
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
