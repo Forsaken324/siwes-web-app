@@ -1,16 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 @import "tailwindcss";
 
 @theme {
   --color-primary: #2563eb;
   --color-primary-light: blue;
-  --color-light-gray: #C1C1C1;
+  --color-light-gray: #c1c1c1;
   --color-dark-gray: #414141;
+  --color-home-gray: #f1f5f9;
 }
 
 @layer base {
   * {
-    font-family: "Outfit", sans-serif;
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     scrollbar-width: thin;
     scrollbar-color: #787777 #1e1e1e;
   }
@@ -19,7 +22,6 @@
     scrollbar-width: none;
   }
 }
-
 
 body {
   color: #414141;

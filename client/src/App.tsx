@@ -10,6 +10,7 @@ import CarDetails from "./pages/CarDetails";
 import CarSearch from "./pages/CarSearch";
 import BookingsPage from "./pages/BookingsPage";
 import Footer from "./components/Footer";
+// import MobileSearchBar from "./components/MobileSearchBar";
 
 // admin components
 
@@ -22,6 +23,7 @@ const App = () => {
     <>
       <Toaster />
       {!isAdminRoute && <NavBar />}
+      {/* {!isAdminRoute && <MobileSearchBar />} */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/car-details/:carId" element={<CarDetails />}/>
