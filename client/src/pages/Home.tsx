@@ -6,6 +6,7 @@ import { assets } from "../assets/assets";
 import FeaturedVehicles from "./FeaturedVehicles";
 import AboutBanner from "./AboutBanner";
 import Reviews from "./Reviews";
+import NewsLetter from "./NewsLetter";
 
 const Home = () => {
   const date = new Date();
@@ -50,14 +51,18 @@ const Home = () => {
     setReturnDateString(toDateString(new Date(returnDate)));
   }, [pickupDate, returnDate]);
 
+  useEffect(() => {
+    scrollTo(0,0);
+  }, []);
+
   return (
     <div>
-      <div className="bg-home-gray flex flex-col items-center justify-center h-[100vh] gap-16">
-        <h2 className="text-[32px] md:text-[50px] font-bold">
+      <div className="bg-home-gray flex flex-col items-center justify-center h-[1000px] xl:h-[100vh] gap-16">
+        <h2 className="text-[32px] md:text-[50px] font-bold xl:mt-[200px]">
           Luxury Cars on Rent
         </h2>
 
-        <div className="flex flex-col md:flex-row md:items-center justify-evenly p-10 gap-5 md:p-0 md:gap-0 h-auto w-[90%] md:h-[90px] md:w-[878px] bg-white rounded-xl md:rounded-full shadow-xl">
+        <div className="flex flex-col md:flex-row md:items-center justify-evenly p-10 gap-5 md:p-4 md:gap-0 h-auto w-[90%] md:h-[90px] xl:w-[878px] bg-white rounded-xl md:rounded-full shadow-xl">
           {/* Pick-up location */}
           <div>
             <label htmlFor="country" className="flex gap-4 cursor-pointer">
@@ -130,6 +135,7 @@ const Home = () => {
       <FeaturedVehicles />
       <AboutBanner />
       <Reviews />
+      <NewsLetter />
     </div>
   );
 };

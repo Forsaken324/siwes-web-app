@@ -11,9 +11,13 @@ const ReviewCard = ({ customer }: CustomerReviewPayload) => {
           <p className="text-sm">{customer.country}</p>
         </div>
         {/* {assets.star_icon * customer.rating} */}
-        {/* <assets.star_icon/> */}
       </div>
-      <div className="text-sm mt-[20px]">{customer.description}</div>
+      <div className="flex mt-2 mb-2">
+        {Array.from({ length: customer.rating }, (_, i) => (
+          <img key={i} src={assets.star_icon} alt="star" className="h-4 w-4" />
+        ))}
+      </div>
+      <div className="text-sm ">{customer.description}</div>
     </div>
   );
 };

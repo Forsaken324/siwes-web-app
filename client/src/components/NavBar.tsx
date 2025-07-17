@@ -54,29 +54,29 @@ const NavBar = () => {
         <a href="#about" className={`${menuOpen ? "text-white" : ""}`}>
           About
         </a>
-      </div>
-      <div className="flex items-center gap-7">
-        <div className="flex w-[233px] h-[38px] items-center rounded-full border border-light-gray hidden ">
-          <input
-            type="text"
-            placeholder="Search cars"
-            className="outline-none w-[185px] ml-2"
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-          />
-          <SearchIcon className="mr-5" />
+        <div className={`flex items-center gap-7 ${menuOpen ? 'text-white flex-col-reverse': ''}`}>
+          <div className="flex w-[233px] h-[38px] items-center rounded-full border border-light-gray">
+            <input
+              type="text"
+              placeholder="Search cars"
+              className="outline-none w-[185px] ml-2"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+            />
+            <SearchIcon className="mr-5" />
+          </div>
+          <Link to={"/car-search"} onClick={handleLinkClick} className="">
+            List cars
+          </Link>
         </div>
-        <Link to={"/car-search"} onClick={handleLinkClick} className="hidden">
-          List cars
-        </Link>
-        {isLoggedIn ? (
-          <User />
-        ) : (
-          <button className="w-[90px] md:w-[114.86px] md:h-[38px] mr-4 text-white bg-primary hover:bg-primary-light duration-300 transition rounded">
-            Login
-          </button>
-        )}
       </div>
+      {isLoggedIn ? (
+        <User />
+      ) : (
+        <button className="w-[90px] md:w-[114.86px] md:h-[38px] mr-4 text-white bg-primary hover:bg-primary-light duration-300 transition rounded">
+          Login
+        </button>
+      )}
     </div>
   );
 };
