@@ -56,7 +56,7 @@ const NavBar = () => {
         </a>
       </div>
       <div className="flex items-center gap-7">
-        <div className="flex w-[233px] h-[38px] items-center rounded-full border border-light-gray ">
+        <div className="flex w-[233px] h-[38px] items-center rounded-full border border-light-gray hidden ">
           <input
             type="text"
             placeholder="Search cars"
@@ -66,7 +66,7 @@ const NavBar = () => {
           />
           <SearchIcon className="mr-5" />
         </div>
-        <Link to={"/car-search"} onClick={handleLinkClick} className="">
+        <Link to={"/car-search"} onClick={handleLinkClick} className="hidden">
           List cars
         </Link>
         {isLoggedIn ? (

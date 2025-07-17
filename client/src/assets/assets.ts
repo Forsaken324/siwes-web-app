@@ -44,6 +44,10 @@ import car_image2 from "./car_image2.png"
 import car_image3 from "./car_image3.png"
 import car_image4 from "./car_image4.png"
 
+// payloads
+import type { CarPayload } from "../interfaces/interfaces";
+import type { ReviewsPayload } from "../interfaces/interfaces";
+
 export const cityList = ['New York', 'Los Angeles', 'Houston', 'Chicago']
 
 export const assets = {
@@ -109,13 +113,13 @@ export const ownerMenuLinks = [
 
 export const dummyUserData = {
   "_id": "6847f7cab3d8daecdb517095",
-  "name": "GreatStack",
+  "name": "Nduonofit",
   "email": "admin@example.com",
   "role": "owner",
   "image": user_profile,
 }
 
-export const dummyCarData = [
+export const dummyCarData: CarPayload[] = [
     {
         "_id": "67ff5bc069c03d4e45f30b77",
         "owner": "67fe3467ed8a8fe17d0ba6e2",
@@ -130,7 +134,7 @@ export const dummyCarData = [
         "pricePerDay": 300,
         "location": "New York",
         "description": "The BMW X5 is a mid-size luxury SUV produced by BMW. The X5 made its debut in 1999 as the first SUV ever produced by BMW.",
-        "isAvaliable": true,
+        "isAvailiable": true,
         "createdAt": "2025-04-16T07:26:56.215Z",
     },
     {
@@ -147,7 +151,7 @@ export const dummyCarData = [
         "pricePerDay": 130,
         "location": "Chicago",
         "description": "The Toyota Corolla is a mid-size luxury sedan produced by Toyota. The Corolla made its debut in 2008 as the first sedan ever produced by Toyota.",
-        "isAvaliable": true,
+        "isAvailiable": true,
         "createdAt": "2025-04-16T08:33:57.993Z",
     },
     {
@@ -164,7 +168,7 @@ export const dummyCarData = [
         "pricePerDay": 200,
         "location": "Los Angeles",
         "description": "The Jeep Wrangler is a mid-size luxury SUV produced by Jeep. The Wrangler made its debut in 2003 as the first SUV ever produced by Jeep.",
-        "isAvaliable": true,
+        "isAvailiable": true,
         "createdAt": "2025-04-16T08:34:39.592Z",
     },
     {
@@ -181,7 +185,7 @@ export const dummyCarData = [
         "pricePerDay": 209,
         "location": "Houston",
         "description": "This is a mid-size luxury sedan produced by Toyota. The Corolla made its debut in 2008 as the first sedan ever produced by Toyota.",
-        "isAvaliable": true,
+        "isAvailiable": true,
         "createdAt": "2025-04-17T06:15:47.318Z",
     }
 ];
@@ -244,3 +248,28 @@ export const dummyDashboardData = {
     ],
     "monthlyRevenue": 840
 }
+
+export const dummyReviews: ReviewsPayload[] = [
+    {
+        "name": "Emma Rodriguez",
+        "country": "Barcelona, Spain",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum dignissim massa, eu pretium est scelerisque a. Etiam pretium felis vitae felis finibus, vel eleifend ipsum rhoncus. In feugiat nunc.",
+        "image": assets.testimonial_image_1,
+        "rating": 4,
+    },
+    {
+        "name": "Emma Rodriguez",
+        "country": "Barcelona, Spain",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum dignissim massa, eu pretium est scelerisque a. Etiam pretium felis vitae felis finibus, vel eleifend ipsum rhoncus. In feugiat nunc.",
+        "image": assets.testimonial_image_2,
+        "rating": 3,
+    },
+    {
+        "name": "Emma Rodriguez",
+        "country": "Barcelona, Spain",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum dignissim massa, eu pretium est scelerisque a. Etiam pretium felis vitae felis finibus, vel eleifend ipsum rhoncus. In feugiat nunc.",
+        "image": assets.testimonial_image_2,
+        "rating": 5,
+    }
+
+]

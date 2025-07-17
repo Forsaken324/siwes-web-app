@@ -7,6 +7,7 @@
   --color-light-gray: #c1c1c1;
   --color-dark-gray: #414141;
   --color-home-gray: #f1f5f9;
+  --color-very-light-primary: #A9CFFF;
 }
 
 @layer base {

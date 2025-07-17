@@ -14,3 +14,41 @@ export interface Countries
     code: string;
     name: string;
 }
+
+export interface CarPayload
+{
+    _id: string;
+    owner: string;
+    brand: string;
+    model: string;
+    image: string;
+    year: number;
+    category: string;
+    seating_capacity: number;
+    fuel_type: string;
+    transmission: string;
+    pricePerDay: number;
+    location: string;
+    description: string;
+    isAvailable: boolean;
+    createdAt: Date;
+}
+
+export interface CarCardProps
+{
+    car: CarPayload;
+}
+
+export interface ReviewsPayload
+{
+    name: string;
+    country: string;
+    description: string;
+    image: string;
+    rating: number;
+}
+
+export interface CustomerReviewPayload
+{
+    customer: ReviewsPayload;
+}
