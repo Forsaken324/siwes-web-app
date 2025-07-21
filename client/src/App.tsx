@@ -15,14 +15,14 @@ import Footer from "./components/Footer";
 // admin components
 
 const App = () => {
-  const isAdminRoute = useLocation().pathname.startsWith('/admin');
+  const isOwnerRoute = useLocation().pathname.startsWith('/owner');
   const loadingIcon = document.getElementById('loading-icon');
   if(loadingIcon) loadingIcon.remove();
 
   return (
     <>
       <Toaster />
-      {!isAdminRoute && <NavBar />}
+      {!isOwnerRoute && <NavBar />}
       {/* {!isAdminRoute && <MobileSearchBar />} */}
       <Routes>
         <Route path="/" element={<Home />} />
@@ -30,7 +30,7 @@ const App = () => {
         <Route path="/car-search" element={<CarSearch />}/>
         <Route path="/bookings/userId" element={<BookingsPage />} />
       </Routes>
-      {!isAdminRoute && <Footer />}
+      {!isOwnerRoute && <Footer />}
     </>
   )
 }

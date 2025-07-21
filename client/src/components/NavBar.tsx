@@ -21,10 +21,10 @@ const NavBar = () => {
         className={`max-md:ml-4 md:hidden w-8 h-8 cursor-pointer`}
         onClick={() => setMenuOpen(true)}
       />
-      <Link to={"/"} className="flex items-center gap-2">
+      <Link to={"/"} className="flex items-center">
         <img src={assets.qicon} alt="q logo" className="h-[30px]" />
         <p className="font-bold text-[25px] md:text-[30px] text-black">
-          Rentals
+          rentals
         </p>
       </Link>
 

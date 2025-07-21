@@ -16,7 +16,7 @@ const Reviews = () => {
     <div className="flex flex-col items-center justify-center mt-[150px] p-3 md:p-0">
       <h2 className="text-[40px] font-bold">What Our Customers Say</h2>
       <p className="text-[16px] text-gray-400">
-        Discover why discerning travelers choose Q Rentals for renting luxury
+        Discover why discerning travelers choose Qrentals for renting luxury
         vehicles around the world.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-15 mt-[70px]">
