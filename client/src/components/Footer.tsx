@@ -4,13 +4,13 @@ const Footer = () => {
   const date = new Date();
   return (
     <div className="flex flex-col gap-4 justify-center mt-50 p-4">
-      <div className="flex justify-evenly">
+      <div className="flex flex-col md:flex-row justify-evenly">
         <div className="flex flex-col justify-evenly gap-2">
           <div className="flex">
             <img src={assets.qicon} alt="q-rentals logo" />
             <p className="font-bold text-[30px]">rentals</p>
           </div>
-          <p className="w-[250px] lg:w-[400px] text-gray-400">
+          <p className="md:w-[250px] lg:w-[400px] text-gray-400">
             Premium car rental service with a wide selection of luxury and
             everyday vehicles for all your driving needs.
           </p>
@@ -29,7 +29,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <div className='flex gap-15'>
+        <div className='flex flex-col md:flex-row gap-5 md:gap-15 mt-7 md:mt-0'>
           <div className="flex flex-col gap-2">
             <h2 className="text-black font-semibold">QUICK LINKS</h2>
             <ul className="text-gray-400 text-sm">
@@ -83,13 +83,15 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <hr className="text-gray-400" />
-      <div className="text-gray-400 flex justify-between ml-2 mr-2">
+      <div className="flex justify-center items-center">
+        <hr className="text-gray-400/50 md:w-[85%] xl:w-[62%]" />
+      </div>
+      <div className="text-gray-400 flex justify-evenly ml-2 mr-2">
         <p>&copy; {date.getFullYear()} Qrental. All rights reserved.</p>
         <ul className="flex gap-3">
-          <li>Terms</li>
-          <li>Privacy</li>
-          <li>Cookies</li>
+          <li><Link to={'/'}>Terms</Link></li>
+          <li><Link to={'/'}>Privacy</Link></li>
+          <li><Link to={'/'}>Cookies</Link></li>
         </ul>
       </div>
     </div>
@@ -106,3 +108,6 @@ export default Footer;
 // himself known to the world.
 
 // luke 4: 39. And she arose and served them?
+
+
+// the man took Jesus by his word. His word, he holds his word dearly.
