@@ -1,9 +1,200 @@
-
+import { Link, useParams } from "react-router-dom";
+import { assets, dummyCarData } from "../assets/assets";
+import { useEffect, useRef, useState } from "react";
+import type { CarPayload } from "../interfaces/interfaces";
+import Loading from "../common/animations/Loading";
+import { ArrowLeft, Dot } from "lucide-react";
+import { toDateString } from "../lib/toDateString";
 
 const CarDetails = () => {
-  return (
-    <div>CarDetails</div>
-  )
-}
+  const { carId } = useParams();
+  const [car, setCar] = useState<CarPayload | null>(null);
+  const carImgRef = useRef(null);
+  const currency = import.meta.env.VITE_CURRENCY;
 
-export default CarDetails
+  const date = new Date();
+
+  const [pickupDate, setPickupDate] = useState<string>(
+    date.toISOString().split("T")[0]
+  ); // yyyy-mm-dd
+  const [returnDate, setReturnDate] = useState<string>(
+    date.toISOString().split("T")[0]
+  )
+
+  const [pickupDateString, setPickupDateString] = useState<string>(
+    toDateString(new Date(pickupDate))
+  );
+  const [returnDateString, setReturnDateString] = useState<string>(
+    toDateString(new Date(returnDate))
+  );
+
+  const getCar = async (carId: string) => {
+    const fetchedCar = dummyCarData.find((car) => car._id === carId);
+    setCar(fetchedCar as CarPayload);
+  };
+
+  useEffect(() => {
+    if (!carId) return;
+    getCar(carId);
+  }, [carId]);
+
+  useEffect(() => {
+    if (carImgRef.current) {
+      carImgRef.current.style.backgroundImage = `url(${car?.image})`;
+      carImgRef.current.style.backgroundSize = "cover";
+      carImgRef.current.style.backgroundPosition = "center";
+    }
+  }, [car?.image]);
+
+  const pickupRef = useRef<HTMLInputElement>(null);
+  const returnRef = useRef<HTMLInputElement>(null);
+
+  const openCalendar = (ref: React.RefObject<HTMLInputElement>) => {
+    ref.current?.showPicker?.(); // open native picker if supported
+  };
+
+  useEffect(() => {
+    setPickupDateString(toDateString(new Date(pickupDate)));
+    setReturnDateString(toDateString(new Date(returnDate)));
+  }, [pickupDate, returnDate]);
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+  };
+
+  return (
+    <div className="flex flex-wrap justify-center gap-30 mt-50">
+      {car ? (
+        <>
+          <div className="w-[833.94px]">
+            <div className="text-gray-400 flex gap-2 text-sm items-center pb-4">
+              <ArrowLeft /> <Link to={"/car-search"}>Back to all cars</Link>
+            </div>
+            <div>
+              <div className="h-[387px] rounded-xl" ref={carImgRef}></div>
+              <h2 className="text-black font-bold text-[30px] mt-4">
+                {car.brand} {car.model}
+              </h2>
+              <p className="flex items-center text-md text-gray-400">
+                {car.year}
+                <Dot />
+                {car.category}
+              </p>
+              <hr className="mt-3 text-gray-400/50" />
+              <div className="flex justify-around mt-15">
+                <div className="flex items-center justify-center flex flex-col w-[197px] h-[80px] bg-v-light-gray rounded-xl">
+                  <img
+                    src={assets.users_icon}
+                    alt="seating-capacity"
+                    className="h-[20px]"
+                  />
+                  <p className="font-bold">
+                    {car.seating_capacity}{" "}
+                    {car.seating_capacity > 1 ? "seats" : "seat"}
+                  </p>
+                </div>
+                <div className="flex items-center justify-center flex flex-col w-[197px] h-[80px] bg-v-light-gray rounded-xl">
+                  <img
+                    src={assets.fuel_icon}
+                    alt="fuel-type"
+                    className="h-[20px]"
+                  />
+                  <p className="font-bold">{car.fuel_type}</p>
+                </div>
+                <div className="flex items-center justify-center flex flex-col w-[197px] h-[80px] bg-v-light-gray rounded-xl">
+                  <img
+                    src={assets.carIcon}
+                    alt="transmission"
+                    className="h-[20px]"
+                  />
+                  <p className="font-bold">{car.transmission}</p>
+                </div>
+                <div className="flex items-center justify-center flex flex-col w-[197px] h-[80px] bg-v-light-gray rounded-xl">
+                  <img
+                    src={assets.location_icon}
+                    alt="location"
+                    className="h-[20px]"
+                  />
+                  <p className="font-bold">{car.location}</p>
+                </div>
+              </div>
+              <div className="mt-6">
+                <h3 className="font-bold text-[19.53px]">Description</h3>
+                <p className="text-sm text-gray-400">{car.description}</p>
+              </div>
+              <div className="mt-6">
+                <h3 className="font-bold text-[19.53px] mb-5">Features</h3>
+                <div className="flex gap-2">
+                  <div className="flex flex-col gap-3">
+                    {car.features.slice(0, 2).map((feature) => (
+                      <p className="flex items-start gap-2">
+                        <img src={assets.check_icon} alt="tic-icon" /> {feature}
+                      </p>
+                    ))}
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    {car.features.slice(2).map((feature) => (
+                      <p className="flex items-start gap-2">
+                        <img src={assets.check_icon} alt="tic-icon" /> {feature}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center flex-col w-[310px] h-[400px] rounded-xl shadow shadow-xl">
+            <div className="flex items-center justify-between w-[85%] mt-5 pb-3">
+              <p className="font-bold text-2xl">
+                {currency}
+                {car.pricePerDay}
+              </p>
+              <p className="text-sm text-gray-400">per day</p>
+            </div>
+            <hr className="text-gray-400/50 w-[85%]  mb-13" />
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="pickup-date" className="font-bold">
+                Pickup Date
+              </label>
+              <br />
+              <input
+                type="date"
+                className="pickup-date hidden"
+                id="pickup-date"
+                ref={pickupRef}
+                onChange={(e) => setPickupDate(e.target.value)}
+              />
+              <div className="flex items-center w-[263px] h-[40px] border border-gray-400/50 rounded rounded-lg mb-5 pl-3" onClick={() => openCalendar(pickupRef)}>{pickupDateString}</div>
+              <label htmlFor="return-date" className="font-bold">
+                Return Date
+              </label>
+              <br />
+              <input
+                type="date"
+                className="return-date hidden"
+                id="return-date"
+                ref={returnRef}
+                onChange={(e) => setReturnDate(e.target.value)}
+              />
+              <div className="flex items-center w-[263px] h-[40px] border border-gray-400/50 rounded rounded-lg mb-9 pl-3" onClick={() => openCalendar(returnRef)}>{returnDateString}</div>
+              <button className="bg-primary text-white w-[263px] h-[42px] rounded-lg">
+                Book Now
+              </button>
+            </form>
+            <p className="text-sm text-gray-400 mt-3">
+              No credit card required to reserve
+            </p>
+          </div>
+        </>
+      ) : (
+        <Loading />
+      )}
+    </div>
+  );
+};
+
+export default CarDetails;
+
+// the disciple whom he loved was standing there, they cast lots among themselves for his garment.
+// he said to the his mother, woman, here is your son, and to the disciple, here is your mother. Who was this disciple.
+// that was the disciple that took mary the mother of Jesus into his house. Do not hold on to me, for I have not yet ascended to my father.

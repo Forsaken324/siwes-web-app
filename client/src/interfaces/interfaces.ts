@@ -32,6 +32,7 @@ export interface CarPayload
     description: string;
     isAvailable: boolean;
     createdAt: Date;
+    features: Array<string>;
 }
 
 export interface CarCardProps
