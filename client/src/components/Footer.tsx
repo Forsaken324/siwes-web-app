@@ -84,7 +84,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex justify-center items-center">
-        <hr className="text-gray-400/50 md:w-[85%] xl:w-[62%]" />
+        <hr className="text-gray-400/50 w-[100%] md:w-[85%] xl:w-[62%]" />
       </div>
       <div className="text-gray-400 flex justify-evenly ml-2 mr-2">
         <p>&copy; {date.getFullYear()} Qrental. All rights reserved.</p>
