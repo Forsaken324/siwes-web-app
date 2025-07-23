@@ -53,3 +53,23 @@ export interface CustomerReviewPayload
 {
     customer: ReviewsPayload;
 }
+
+export interface BookingDataPayload
+{
+    _id: string;
+    car: CarPayload;
+    user: string;
+    owner: string;
+    pickupDate: string;
+    returnDate: string;
+    status: string;
+    price: number;
+    createdAt: string;
+}
+
+
+export interface BookedCarProps
+{
+    bookedData: BookingDataPayload
+    index: number;
+}

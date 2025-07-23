@@ -9,6 +9,7 @@
   --color-home-gray: #f1f5f9;
   --color-very-light-primary: #A9CFFF;
   --color-v-light-gray: #F3F4F6;
+  --color-border-color: #DDE1EE;
 }
 
 @layer base {

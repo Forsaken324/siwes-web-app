@@ -28,7 +28,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/car-details/:carId" element={<CarDetails />}/>
         <Route path="/car-search" element={<CarSearch />}/>
-        <Route path="/bookings/userId" element={<BookingsPage />} />
+        <Route path="/bookings/:userId" element={<BookingsPage />} />
       </Routes>
       {!isOwnerRoute && <Footer />}
     </>
