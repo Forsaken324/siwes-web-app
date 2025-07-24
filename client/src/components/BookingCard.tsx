@@ -32,7 +32,7 @@ const BookingCard = ({ bookedData, index }: BookedCarProps) => {
   }, []);
 
   return (
-    <div className="flex gap-7 xl:w-[1188px] h-[279px] rounded-lg border border-border-color p-5">
+    <div className="flex flex-col md:flex-row gap-7 xl:w-[1188px] md:h-[279px] rounded-lg border border-border-color p-5">
       <div>
         <img
           src={bookedData.car.image}
@@ -50,7 +50,7 @@ const BookingCard = ({ bookedData, index }: BookedCarProps) => {
           {bookedData.car.location}
         </p>
       </div>
-      <div className="flex justify-between w-[70%]">
+      <div className="flex justify-between md:w-[70%]">
         <div>
           <div className="flex gap-5">
             <div className="flex items-center justify-center bg-gray-400/20 w-[77px] h-[25px] text-black text-[12px] rounded">

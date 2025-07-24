@@ -31,7 +31,7 @@ const NewsLetter = () => {
       <div className="flex mt-[70px]">
         <input
           type="text"
-          className="xl:w-[724px] h-[45px] md:w-[600px] xl:h-[52px] border border-gray-400 p-3"
+          className="xl:w-[724px] h-[45px] md:w-[600px] xl:h-[52px] border border-gray-400 p-3 outline-orange-400/30"
           placeholder="Enter your email address"
           value={subscriberEmail}
           onChange={handleChange}

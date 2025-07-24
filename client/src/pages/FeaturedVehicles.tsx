@@ -4,6 +4,7 @@ import CarCard from "../components/CarCard";
 import type { CarPayload } from "../interfaces/interfaces";
 import Loading from "../common/animations/Loading";
 import { MoveRight } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 const FeaturedVehicles = () => {
   const [cars, setCars] = useState<CarPayload[]>([]);
@@ -11,6 +12,7 @@ const FeaturedVehicles = () => {
   const getCars = async () => {
     setCars(dummyCarData.slice(0, 3) as CarPayload[]);
   };
+  const navigate = useNavigate();
 
   useEffect(() => {
     getCars();
@@ -25,10 +27,10 @@ const FeaturedVehicles = () => {
         {cars.length == 0 ? (
           <Loading />
         ) : (
-          cars.map((car, index) => <CarCard key={index} car={car} />)
+          cars.map((car, index) => <Link key={index} to={`/car-details/${car._id}`}><CarCard car={car} /></Link>)
         )}
       </div>
-      <button className="flex justify-evenly items-center w-[180px] h-[47px] border border-gray-400/30 rounded-lg mt-[100px] hover:bg-primary hover:text-white duration-900 transition">Explore all cars <MoveRight /></button>
+      <button className="flex justify-evenly items-center w-[180px] h-[47px] border border-gray-400/30 rounded-lg mt-[100px] hover:bg-primary hover:text-white duration-900 transition" onClick={() => navigate('/car-search')}>Explore all cars <MoveRight /></button>
     </div>
   );
 };

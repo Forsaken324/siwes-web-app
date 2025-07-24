@@ -29,6 +29,10 @@ const App = () => {
         <Route path="/car-details/:carId" element={<CarDetails />}/>
         <Route path="/car-search" element={<CarSearch />}/>
         <Route path="/bookings/:userId" element={<BookingsPage />} />
+
+        <Route >
+
+        </Route>
       </Routes>
       {!isOwnerRoute && <Footer />}
     </>

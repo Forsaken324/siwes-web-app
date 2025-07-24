@@ -1,9 +1,16 @@
+import {useEffect} from "react"
 import SearchHeader from "../components/SearchHeader";
 import { dummyCarData } from "../assets/assets";
 import CarCard from "../components/CarCard";
+import { Link } from "react-router-dom";
+
 
 const CarSearch = () => {
   const carsLength = dummyCarData.length;
+  
+  useEffect(() => {
+    scrollTo(0,0)
+  }, [])
   return (
     <div>
       <SearchHeader />
@@ -15,7 +22,7 @@ const CarSearch = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {dummyCarData.map((car, index) => (
-              <CarCard key={index} car={car} />
+              <Link key={index}  to={`/car-details/${car._id}`}><CarCard car={car} /></Link>
             ))}
           </div>
         </div>

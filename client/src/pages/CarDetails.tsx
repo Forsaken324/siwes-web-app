@@ -9,6 +9,7 @@ import DatePicker from "react-datepicker";
 
 // date picker css
 import "react-datepicker/dist/react-datepicker.css";
+import toast from "react-hot-toast";
 
 const CarDetails = () => {
   const { carId } = useParams();
@@ -38,8 +39,18 @@ const CarDetails = () => {
     }
   }, [car?.image]);
 
+  const bookCar = async () => {}
+
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    const today = new Date();
+    if (pickupDate < today || returnDate < today)
+    {
+      return toast("you cannot book for a date in the past", {
+        duration: 5000,
+        style: {}
+      })
+    }
   };
 
 
@@ -133,11 +144,11 @@ const CarDetails = () => {
               <p className="text-sm text-gray-400">per day</p>
             </div>
             <hr className="text-gray-400/50 w-[85%]  mb-13" />
-            <form onSubmit={handleSubmit} className="flex flex-col justify-center">
-              <label htmlFor="" className="font-bold">Pickup Date</label>
-              <DatePicker className="flex items-center w-[263px] h-[40px] border border-gray-400/50 rounded rounded-lg mb-5 pl-3" selected={pickupDate} onChange={(date) => setPickupDate(date)} />
-              <label htmlFor="" className="font-bold">Return Date</label>
-              <DatePicker className="flex items-center w-[263px] h-[40px] border border-gray-400/50 rounded rounded-lg mb-9 pl-3" selected={returnDate} onChange={(date) => setReturnDate(date)} />
+            <form onSubmit={handleSubmit} id="book-car-form" className="flex flex-col justify-center">
+              <label htmlFor="pickup-date" className="font-bold">Pickup Date</label>
+              <DatePicker id="pickup-date" className="flex items-center w-[263px] h-[40px] border border-gray-400/50 rounded rounded-lg mb-5 pl-3" selected={pickupDate} onChange={(date) => setPickupDate(date)} />
+              <label htmlFor="return-date" className="font-bold">Return Date</label>
+              <DatePicker id="return-date" className="flex items-center w-[263px] h-[40px] border border-gray-400/50 rounded rounded-lg mb-9 pl-3" selected={returnDate} onChange={(date) => setReturnDate(date)} />
               <button type="submit" className="bg-primary text-white w-[263px] h-[42px] rounded-lg hover:bg-primary-light duration-500 trasition">
                 Book Now
               </button>
