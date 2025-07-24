@@ -73,3 +73,22 @@ export interface BookedCarProps
     bookedData: BookingDataPayload
     index: number;
 }
+
+export interface UserPayload
+{
+    _id: string;
+    name: string;
+    email: string;
+    role: string;
+    image: string;
+}
+
+export interface DashboardDataPayload
+{
+    totalCars: number;
+    totalBookings: number;
+    pendingBookings: number;
+    completedBookings: number;
+    recentBookings: BookingDataPayload[];
+    monthlyRevenue: number;
+}

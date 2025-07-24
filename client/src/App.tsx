@@ -10,6 +10,9 @@ import CarDetails from "./pages/CarDetails";
 import CarSearch from "./pages/CarSearch";
 import BookingsPage from "./pages/BookingsPage";
 import Footer from "./components/Footer";
+import Layout from "./pages/owner/Layout";
+import Dashboard from "./pages/adminxowner/Dashboard";
+import AddCar from "./pages/adminxowner/AddCar";
 // import MobileSearchBar from "./components/MobileSearchBar";
 
 // admin components
@@ -30,8 +33,9 @@ const App = () => {
         <Route path="/car-search" element={<CarSearch />}/>
         <Route path="/bookings/:userId" element={<BookingsPage />} />
 
-        <Route >
-
+        <Route path="/owner/*" element={<Layout />} >
+          <Route index element={<Dashboard />} />
+          <Route path="add-car" element={<AddCar />} />
         </Route>
       </Routes>
       {!isOwnerRoute && <Footer />}
