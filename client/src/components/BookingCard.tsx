@@ -27,8 +27,6 @@ const BookingCard = ({ bookedData, index }: BookedCarProps) => {
         setStatusTextColor("text-yellow-600");
         break;
     }
-    console.log(statusBackgroundColor);
-    console.log(statusTextColor);
   }, []);
 
   return (

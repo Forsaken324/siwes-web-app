@@ -16,7 +16,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 z-50 w-full flex items-center justify-between md:justify-evenly lg:px-16 xl:px-36 py-2 border border-b-light-gray border-t-0 border-r-0 border-l-0">
+    <div className="fixed top-0 left-0 z-50 w-full flex items-center justify-between md:justify-evenly lg:px-16 xl:px-36 py-2 border border-b-light-gray border-t-0 border-r-0 border-l-0 bg-white">
       <Menu
         className={`max-md:ml-4 md:hidden w-8 h-8 cursor-pointer`}
         onClick={() => setMenuOpen(true)}
@@ -29,7 +29,7 @@ const NavBar = () => {
       </Link>
 
       <div
-        className={`max-md:absolute max-md:top-0 max-md:left-0 max-md:font-medium max-md:text-lg z-50 flex flex-col md:flex-row items-center max-md:justify-center gap-8 min-md:px-8 py-3 max-md:h-screen overflow-hidden transition-[width] duration-300 ${
+        className={`max-md:absolute max-md:bg-gray-900 max-md:top-0 max-md:left-0 max-md:font-medium max-md:text-lg z-50 flex flex-col md:flex-row items-center max-md:justify-center gap-8 min-md:px-8 py-3 max-md:h-screen overflow-hidden transition-[width] duration-300 ${
           menuOpen ? "max-md:w-full" : "max-md:w-0"
         }`}
       >

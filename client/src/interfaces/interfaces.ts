@@ -81,6 +81,7 @@ export interface UserPayload
     email: string;
     role: string;
     image: string;
+    isAdmin: boolean;
 }
 
 export interface DashboardDataPayload

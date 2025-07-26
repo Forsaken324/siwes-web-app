@@ -137,6 +137,7 @@ export const dummyUserData = {
   email: "admin@example.com",
   role: "owner",
   image: user_profile,
+  isAdmin: false,
 };
 
 export const dummyCarData: CarPayload[] = [

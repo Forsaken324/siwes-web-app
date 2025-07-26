@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { assets, dummyDashboardData } from "../../assets/assets";
+import { assets, dummyDashboardData, dummyUserData } from "../../assets/assets";
 import type { DashboardDataPayload } from "../../interfaces/interfaces";
 import Loading from "../../common/animations/Loading";
+import RecentBookings from "../../components/adminxowner/RecentBookings";
 
 const Dashboard = () => {
 
@@ -10,6 +11,7 @@ const Dashboard = () => {
   const getDashBoardData = async () => {
     setDashboardData(dummyDashboardData);
   };
+  
 
   useEffect(() => {
     getDashBoardData();
@@ -17,7 +19,7 @@ const Dashboard = () => {
 
   return dashboardData ? (
     <div>
-      <h1 className="text-[26px] text-black">Admin Dashboard</h1>
+      <h1 className="text-[26px] text-black">{dummyUserData.isAdmin ? 'Admin' : 'Owner'} Dashboard</h1>
       <p className="text-gray-400 text-sm md:w-[400px]">
         Monitor overall platform performance including total cars, bookings,
         revenue, and recent activities
@@ -60,6 +62,7 @@ const Dashboard = () => {
             </div>
         </div>
       </div>
+      <RecentBookings />
     </div>
   ) : (
     <Loading />
