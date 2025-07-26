@@ -44,8 +44,8 @@ const RecentBookings = () => {
   // }, []);
   
   return (
-    <div className="flex gap-7 mt-15 ">
-      <div className='flex flex-col justify-center w-[520px] h-[340px] border border-gray-400/30 rounded rounded-lg p-4'>
+    <div className="flex flex-col md:flex-row gap-7 mt-15 ">
+      <div className='flex flex-col justify-center md:w-[520px] md:h-[340px] border border-gray-400/30 rounded rounded-lg p-4'>
         <p className='text-black mx-4 mt-3'>Recent Bookings</p>
         <p className='text-gray-400 text-sm mx-4'>Latest customer bookings</p>
         {
@@ -60,7 +60,7 @@ const RecentBookings = () => {
                   <p className="text-gray text-sm">{toSlashedDate(booking.pickupDate)}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex flex-col md:flex-row items-center gap-2 md:gap-3">
                 <p className="text-gray-400 text-sm">{currency}{booking.price}</p>
                 <span className={`w-[82.02px] rounded-full border px-3 py-1 text-[12px] ${getStatusColor(booking.status)}`}>{booking.status}</span>
               </div>
