@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { assets, dummyMyBookingsData } from "../../assets/assets"
 import type { BookingDataPayload } from "../../interfaces/interfaces"
 import { toSlashedDate } from "../../lib/toSlashedDate";

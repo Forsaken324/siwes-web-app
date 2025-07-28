@@ -7,9 +7,9 @@
   --color-light-gray: #c1c1c1;
   --color-dark-gray: #414141;
   --color-home-gray: #f1f5f9;
-  --color-very-light-primary: #A9CFFF;
-  --color-v-light-gray: #F3F4F6;
-  --color-border-color: #DDE1EE;
+  --color-very-light-primary: #a9cfff;
+  --color-v-light-gray: #f3f4f6;
+  --color-border-color: #dde1ee;
 }
 
 @layer base {
@@ -23,6 +23,15 @@
 
   .no-scrollbar {
     scrollbar-width: none;
+  }
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
   }
 }
 

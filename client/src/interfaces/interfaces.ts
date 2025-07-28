@@ -93,3 +93,4 @@ export interface DashboardDataPayload
     recentBookings: BookingDataPayload[];
     monthlyRevenue: number;
 }
+

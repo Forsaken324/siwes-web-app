@@ -1,0 +1,1 @@
+export type carTransmission = 'Automatic' | 'Manual' | 'Semi-automatic'
