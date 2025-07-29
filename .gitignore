@@ -78,6 +78,10 @@ web_modules/
 .next
 out
 
+# React.js build output
+dist
+dist/
+
 # Nuxt.js build / generate output
 .nuxt
 dist

@@ -42,8 +42,8 @@ const Home = () => {
   const pickupRef = useRef<HTMLInputElement>(null);
   const returnRef = useRef<HTMLInputElement>(null);
 
-  const openCalendar = (ref: React.RefObject<HTMLInputElement>) => {
-    ref.current?.showPicker?.(); // open native picker if supported
+  const openCalendar = (ref: React.RefObject<HTMLInputElement | null>) => {
+    if(ref) ref.current?.showPicker?.(); // open native picker if supported
   };
 
   useEffect(() => {
