@@ -14,7 +14,7 @@ import toast from "react-hot-toast";
 const CarDetails = () => {
   const { carId } = useParams();
   const [car, setCar] = useState<CarPayload | null>(null);
-  const carImgRef = useRef(null);
+  const carImgRef = useRef<HTMLInputElement>(null);
   const currency = import.meta.env.VITE_CURRENCY;
 
   const date = new Date();
@@ -39,7 +39,7 @@ const CarDetails = () => {
     }
   }, [car?.image]);
 
-  const bookCar = async () => {}
+  // const bookCar = async () => {}
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -52,6 +52,13 @@ const CarDetails = () => {
       })
     }
   };
+
+  const handlePickupDate = (date: Date | null) => {
+    if(date) setPickupDate(date);
+  }
+  const handleReturnDate = (date: Date | null) => {
+    if (date) setReturnDate(date);
+  }
 
 
   return (
@@ -146,9 +153,9 @@ const CarDetails = () => {
             <hr className="text-gray-400/50 w-[85%]  mb-13" />
             <form onSubmit={handleSubmit} id="book-car-form" className="flex flex-col justify-center">
               <label htmlFor="pickup-date" className="font-bold">Pickup Date</label>
-              <DatePicker id="pickup-date" className="flex items-center w-[263px] h-[40px] border border-gray-400/50 rounded rounded-lg mb-5 pl-3" selected={pickupDate} onChange={(date) => setPickupDate(date)} />
+              <DatePicker id="pickup-date" className="flex items-center w-[263px] h-[40px] border border-gray-400/50 rounded rounded-lg mb-5 pl-3" selected={pickupDate} onChange={(date) => handlePickupDate(date)} />
               <label htmlFor="return-date" className="font-bold">Return Date</label>
-              <DatePicker id="return-date" className="flex items-center w-[263px] h-[40px] border border-gray-400/50 rounded rounded-lg mb-9 pl-3" selected={returnDate} onChange={(date) => setReturnDate(date)} />
+              <DatePicker id="return-date" className="flex items-center w-[263px] h-[40px] border border-gray-400/50 rounded rounded-lg mb-9 pl-3" selected={returnDate} onChange={(date) => handleReturnDate(date)} />
               <button type="submit" className="bg-primary text-white w-[263px] h-[42px] rounded-lg hover:bg-primary-light duration-500 trasition">
                 Book Now
               </button>

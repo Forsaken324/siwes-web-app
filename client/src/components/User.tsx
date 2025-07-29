@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const User = () => {
-    const [profilePicture, setProfilePicture] = useState<string>('https://placehold.co/100');
+    const [profilePicture, _setProfilePicture] = useState<string>('https://placehold.co/100');
   return (
     <div>
         <img src={profilePicture} alt="" />

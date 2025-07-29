@@ -33,7 +33,7 @@ export interface CarPayload
     location: string;
     description: string;
     isAvailable: boolean;
-    createdAt: Date;
+    createdAt: string;
     features: Array<string>;
 }
 

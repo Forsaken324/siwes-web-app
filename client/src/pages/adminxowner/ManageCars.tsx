@@ -17,7 +17,7 @@ const ManageCars = () => {
     }
     return "bg-red-400/20 text-red-600";
   };
-  const toggleCarAvailability = () => {}
+  // const toggleCarAvailability = () => {}
   const deleteCar = async () => {};
   useEffect(() => {
     getCarData();

@@ -3,7 +3,7 @@ import { assets } from "../assets/assets";
 import { useEffect, useRef } from "react";
 const CarCard = ({car}: CarCardProps) => {
 
-    const carImgRef = useRef(null);
+    const carImgRef = useRef<HTMLInputElement>(null);
     const currency = import.meta.env.VITE_CURRENCY;
     useEffect(() => {
         if(carImgRef.current)
