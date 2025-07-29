@@ -25,27 +25,10 @@ const RecentBookings = () => {
     }
     
   }
-
-  // useEffect(() => {
-  //   switch (status) {
-  //     case "confirmed":
-  //       setStatusBackgroundColor("bg-green-400/20");
-  //       setStatusTextColor("text-green-600");
-  //       break;
-  //     case "canceled":
-  //       setStatusBackgroundColor("bg-red-400/20");
-  //       setStatusTextColor("text-red-600");
-  //       break;
-  //     default:
-  //       setStatusBackgroundColor("bg-yellow-400/20");
-  //       setStatusTextColor("text-yellow-600");
-  //       break;
-  //   }
-  // }, []);
   
   return (
-    <div className="flex flex-col md:flex-row gap-7 mt-15 ">
-      <div className='flex flex-col justify-center md:w-[520px] md:h-[340px] border border-gray-400/30 rounded rounded-lg p-4'>
+    <div className="flex flex-col flex-col-reverse md:flex-row gap-7 mt-15 ">
+      <div className='flex flex-col justify-center overflow-scroll md:overflow-hidden md:w-[520px] md:h-[340px] border border-gray-400/30 rounded rounded-lg p-4'>
         <p className='text-black mx-4 mt-3'>Recent Bookings</p>
         <p className='text-gray-400 text-sm mx-4'>Latest customer bookings</p>
         {
@@ -68,7 +51,7 @@ const RecentBookings = () => {
           ))
         }
       </div>
-      <div className="flex w-[316px] h-[162px] rounded rounded-lg border border-gray-400/30">
+      <div className="flex md:w-[316px] h-[162px] rounded rounded-lg border border-gray-400/30">
         <div className="flex flex-col items-start justify-center ml-5 gap-5">
           <div>
             <p className="text-black">Monthly Revenue</p>

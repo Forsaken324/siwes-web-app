@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 import Layout from "./pages/owner/Layout";
 import Dashboard from "./pages/adminxowner/Dashboard";
 import AddCar from "./pages/adminxowner/AddCar";
+import ManageCars from "./pages/adminxowner/ManageCars";
 // import MobileSearchBar from "./components/MobileSearchBar";
 
 // admin components
@@ -36,6 +37,7 @@ const App = () => {
         <Route path="/owner/*" element={<Layout />} >
           <Route index element={<Dashboard />} />
           <Route path="add-car" element={<AddCar />} />
+          <Route path="manage-cars" element={<ManageCars />} />
         </Route>
       </Routes>
       {!isOwnerRoute && <Footer />}

@@ -1,3 +1,5 @@
+import type { carTransmission } from "../types/types";
+
 export interface AuthInterface
 {
     isLoggedIn: boolean;
@@ -94,3 +96,12 @@ export interface DashboardDataPayload
     monthlyRevenue: number;
 }
 
+
+export interface ManageCarsOwner
+{
+    image: string;
+    model: string;
+    brand: string;
+    capacity: number;
+    transmission: carTransmission
+}

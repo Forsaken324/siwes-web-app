@@ -17,9 +17,9 @@ const SideBar = () => {
   }, [])
   return (
     userData ? (
-      <div className="flex flex-col items-center justify-between border border-b-0 border-t-0 border-gray-400/30 h-[100vh]">
+      <div className="fixed flex flex-col items-center justify-between border border-b-0 border-t-0 border-gray-400/30 h-[100vh]">
       <div>
-        <div className="flex flex-col items-center mt-[50px]">
+        <div className="flex flex-col items-center mt-[80px]">
           <img
             src={userData.image}
             alt={userData.name}
@@ -47,7 +47,7 @@ const SideBar = () => {
                   ) : (
                     <img src={link.icon} className="w-5 h-5" />
                   )}
-                  <p className="hidden text-sm sm:block">{link.name}</p>
+                  <p className="hidden text-sm md:block">{link.name}</p>
                   <span
                     className={`h-10 w-1.5 rounded-l absolute right-0 ${
                       isActive && "bg-primary"

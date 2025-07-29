@@ -24,6 +24,12 @@
   .no-scrollbar {
     scrollbar-width: none;
   }
+  .table-scroll
+  {
+    scrollbar-color: white;
+    scrollbar-base-color: gray;
+    scrollbar-width: 10px;
+  }
   input[type="number"]::-webkit-outer-spin-button,
   input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;

@@ -155,7 +155,7 @@ export const dummyCarData: CarPayload[] = [
     pricePerDay: 300,
     location: "New York",
     description: "The 2025 BMW X5 is a luxury mid-size SUV offering advanced plug-in hybrid technology, state-of-the-art driver assistance systems, and refined comfort.",
-    isAvailiable: true,
+    isAvailable: true,
     createdAt: "2025-04-16T07:26:56.215Z",
     features: [
       "xDrive all-wheel drive with intelligent power distribution",
@@ -179,7 +179,7 @@ export const dummyCarData: CarPayload[] = [
     location: "Chicago",
     description:
       "The BMW M4 Coupe (F82) is a high-performance sports coupe with a twin-turbo inline-6 engine, available in multiple trims including standard, Competition, CS, GTS.",
-    isAvailiable: true,
+    isAvailable: true,
     createdAt: "2025-04-16T08:33:57.993Z",
     features: [
       "3.0 L twin-turbocharged inline-6 engine (S55B30)",
@@ -203,7 +203,7 @@ export const dummyCarData: CarPayload[] = [
     location: "Los Angeles",
     description:
       "The Tesla Model 3 is a compact all electric sedan offering strong range, tech features and fast acceleration.",
-    isAvailiable: true,
+    isAvailable: true,
     createdAt: "2025-04-16T08:34:39.592Z",
     features: [
       "Electric drivetrain with RWD or AWD dual motor setups",
@@ -227,7 +227,7 @@ export const dummyCarData: CarPayload[] = [
     location: "Houston",
     description:
       "The 2016 Camaro SS is a performance-focused V-8 powered RWD coupe, combining strong acceleration, manual gearbox and sporty handling.",
-    isAvailiable: true,
+    isAvailable: true,
     createdAt: "2025-04-17T06:15:47.318Z",
     features: [
       "6.2 L V-8 engine with 455 hp and 455 lb-ft torque",
