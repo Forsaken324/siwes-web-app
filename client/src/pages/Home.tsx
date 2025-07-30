@@ -57,12 +57,12 @@ const Home = () => {
 
   return (
     <div>
-      <div className="bg-home-gray flex flex-col items-center justify-center h-[1000px] xl:h-[100vh] gap-16">
-        <h2 className="text-[32px] md:text-[50px] font-bold xl:mt-[200px]">
+      <div className="bg-home-gray dark:bg-gray-700 flex flex-col items-center justify-center h-[1000px] xl:h-[100vh] gap-16">
+        <h2 className="text-[32px] md:text-[50px] font-bold xl:mt-[200px] dark:text-white">
           Luxury Cars on Rent
         </h2>
 
-        <div className="flex flex-col md:flex-row md:items-center justify-evenly p-10 gap-5 md:p-4 md:gap-0 h-auto w-[90%] md:h-[90px] xl:w-[878px] bg-white rounded-xl md:rounded-full shadow-xl">
+        <div className="flex flex-col md:flex-row md:items-center justify-evenly p-10 gap-5 md:p-4 md:gap-0 h-auto w-[90%] md:h-[90px] xl:w-[878px] bg-white dark:bg-black dark:text-white rounded-xl md:rounded-full shadow-xl">
           {/* Pick-up location */}
           <div>
             <label htmlFor="country" className="flex gap-4 cursor-pointer">

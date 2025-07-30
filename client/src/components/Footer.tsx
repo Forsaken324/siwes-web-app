@@ -3,12 +3,12 @@ import { assets } from "../assets/assets";
 const Footer = () => {
   const date = new Date();
   return (
-    <div className="flex flex-col gap-4 justify-center mt-50 p-4">
+    <div className="flex flex-col gap-4 justify-center pt-50 p-4 dark:bg-black">
       <div className="flex flex-col md:flex-row justify-evenly">
         <div className="flex flex-col justify-evenly gap-2">
           <div className="flex">
             <img src={assets.qicon} alt="q-rentals logo" />
-            <p className="font-bold text-[30px]">rentals</p>
+            <p className="font-bold text-[30px] dark:text-white">rentals</p>
           </div>
           <p className="md:w-[250px] lg:w-[400px] text-gray-400">
             Premium car rental service with a wide selection of luxury and
@@ -31,7 +31,7 @@ const Footer = () => {
         </div>
         <div className='flex flex-col md:flex-row gap-5 md:gap-15 mt-7 md:mt-0'>
           <div className="flex flex-col gap-2">
-            <h2 className="text-black font-semibold">QUICK LINKS</h2>
+            <h2 className="text-black font-semibold dark:text-white">QUICK LINKS</h2>
             <ul className="text-gray-400 text-sm">
               <li>
                 <Link to={"/"}>Home</Link>
@@ -48,7 +48,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="flex flex-col gap-2">
-            <h2 className="text-blaxk font-semibold">RESOURCES</h2>
+            <h2 className="text-black font-semibold dark:text-white">RESOURCES</h2>
             <ul className="text-gray-400 text-sm">
               <li>
                 <Link to={"/"}>Home</Link>
@@ -65,7 +65,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="flex flex-col gap-2">
-            <h2 className="text-black font-semibold">CONTACT</h2>
+            <h2 className="text-black font-semibold dark:text-white">CONTACT</h2>
             <ul className="text-gray-400 text-sm">
               <li>
                 <Link to={"/"}>1234 Luxury Drive</Link>

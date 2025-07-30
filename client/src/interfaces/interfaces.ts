@@ -1,4 +1,4 @@
-import type { carTransmission } from "../types/types";
+import type { carTransmission, theme } from "../types/types";
 
 export interface AuthInterface
 {
@@ -104,4 +104,11 @@ export interface ManageCarsOwner
     brand: string;
     capacity: number;
     transmission: carTransmission
+}
+
+export interface Theme
+{
+    theme: theme;
+    changeTheme: () => void;
+    entryTheme: () => void;
 }

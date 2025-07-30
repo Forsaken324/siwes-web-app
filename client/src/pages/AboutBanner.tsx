@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 const AboutBanner = () => {
   const navigate = useNavigate();
   return (
-    <div className='flex items-center justify-center mt-[150px] text-white'>
+    <div className='flex items-center justify-center pt-[150px] pb-[270px] text-white dark:bg-black'>
         <div className='grid grid-cols-1 md:grid-cols-2 items-center p-5 md:p-0 w-auto h-auto md:h-[260px] md:w-[1040px] gap-6 bg-gradient-to-r from-primary to-very-light-primary xl:rounded-xl'>
             <div className='md:w-[600px] flex flex-col gap-5 ml-7'>
                 <h2 className='font-bold text-[28px]' >Do You Own a Luxury Car?</h2>

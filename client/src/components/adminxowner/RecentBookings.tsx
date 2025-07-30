@@ -11,19 +11,14 @@ const RecentBookings = () => {
   const getStatusColor = (status: string): string => {
     if(status == 'confirmed')
     {
-      console.log('here')
       return 'bg-green-400/20 text-green-600'
     } else if (status == 'canceled')
     {
-      console.log('here')
       return 'bg-red-400/20 text-red-600'
     } else
     {
-      console.log('here')
       return 'bg-yellow-400/20 text-yellow-600'
-
-    }
-    
+    }  
   }
   
   return (

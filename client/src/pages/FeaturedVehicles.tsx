@@ -18,7 +18,7 @@ const FeaturedVehicles = () => {
     getCars();
   }, []);
   return (
-    <div className="flex flex-col justify-center items-center flex-wrap">
+    <div className="flex flex-col justify-center items-center flex-wrap dark:bg-black dark:text-white">
       <h2 className="text-[35px] md:text-[40px] font-bold mt-[150px]">Featured Vehicles</h2>
       <p className="text-[12px] p-3 md:p-0 md:text-[19px] md:mt-[25px]">
         Explore our selection of premium vehicles available for your next adventure
@@ -30,7 +30,7 @@ const FeaturedVehicles = () => {
           cars.map((car, index) => <Link key={index} to={`/car-details/${car._id}`}><CarCard car={car} /></Link>)
         )}
       </div>
-      <button className="flex justify-evenly items-center w-[180px] h-[47px] border border-gray-400/30 rounded-lg mt-[100px] hover:bg-primary hover:text-white duration-900 transition" onClick={() => navigate('/car-search')}>Explore all cars <MoveRight /></button>
+      <button className="flex justify-evenly items-center w-[180px] h-[47px] border border-gray-400/30 rounded-lg mt-[100px] hover:bg-primary hover:text-white duration-900 transition dark:bg-primary dark:text-white dark:border-0" onClick={() => navigate('/car-search')}>Explore all cars <MoveRight /></button>
     </div>
   );
 };
