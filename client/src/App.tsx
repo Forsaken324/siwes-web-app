@@ -16,6 +16,7 @@ import AddCar from "./pages/adminxowner/AddCar";
 import ManageCars from "./pages/adminxowner/ManageCars";
 import { useEffect } from "react";
 import { useTheme } from "./hooks/useTheme";
+import ManageBookings from "./pages/adminxowner/ManageBookings";
 // import MobileSearchBar from "./components/MobileSearchBar";
 
 // admin components
@@ -46,6 +47,7 @@ const App = () => {
           <Route index element={<Dashboard />} />
           <Route path="add-car" element={<AddCar />} />
           <Route path="manage-cars" element={<ManageCars />} />
+          <Route path="manage-bookings" element={<ManageBookings />} />
         </Route>
       </Routes>
       {!isOwnerRoute && <Footer />}

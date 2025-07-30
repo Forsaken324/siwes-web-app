@@ -102,8 +102,8 @@ export interface ManageCarsOwner
     image: string;
     model: string;
     brand: string;
-    capacity: number;
-    transmission: carTransmission
+    capacity: number | null;
+    transmission: carTransmission | null;
 }
 
 export interface Theme
