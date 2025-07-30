@@ -15,7 +15,7 @@ const ManageCars = () => {
     if (isAvalilable) {
       return "bg-green-400/20 text-green-600";
     }
-    return "bg-red-400/20 text-red-600";
+    return "bg-green-400/20 text-green-600";
   };
   // const toggleCarAvailability = () => {}
   const deleteCar = async () => {};
