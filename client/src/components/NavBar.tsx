@@ -1,5 +1,5 @@
 import { assets } from "../assets/assets";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { SearchIcon, Menu, XIcon, MoonIcon, SunIcon } from "lucide-react";
 import { useState } from "react";
 import useAuth from "../hooks/useAuth";
@@ -11,6 +11,7 @@ const NavBar = () => {
   const { isLoggedIn } = useAuth();
   const [searchValue, setSearchValue] = useState<string>("");
   const { theme, changeTheme } = useTheme();
+  const isMainApp = useLocation().pathname.startsWith('/owner');
 
   const handleLinkClick = () => {
     scrollTo(0, 0);
@@ -18,7 +19,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 z-50 w-full flex items-center justify-between md:justify-evenly lg:px-16 xl:px-36 py-2 md:py-0 border border-b-light-gray dark:border-0 border-t-0 border-r-0 border-l-0 bg-white dark:bg-black">
+    <nav className="fixed top-0 left-0 z-50 w-full flex items-center justify-between md:justify-evenly border border-b-light-gray dark:border-0 border-t-0 border-r-0 border-l-0 bg-white dark:bg-black">
       <Menu
         className={`max-md:ml-4 md:hidden w-8 h-8 cursor-pointer dark:text-white`}
         onClick={() => setMenuOpen(true)}
@@ -90,7 +91,7 @@ const NavBar = () => {
           </button>
         )}
       </div>
-    </div>
+    </nav>
   );
 };
 
