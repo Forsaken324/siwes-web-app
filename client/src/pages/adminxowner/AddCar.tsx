@@ -2,6 +2,7 @@ import { useState } from "react";
 import { assets } from "../../assets/assets";
 import type { carTransmission } from "../../types/types";
 import toast from "react-hot-toast";
+import { motion } from "motion/react";
 
 const AddCar = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -35,12 +36,12 @@ const AddCar = () => {
 
   return (
     <div>
-      <h1 className="text-black text-[26px]">Add New Car</h1>
+      <h1 className="text-black text-[26px] dark:text-white">Add New Car</h1>
       <p className="text-sm text-gray-400">
         Fill in details to list a new car for booking, including pricing,
         availability, and car specifications.
       </p>
-      <form onSubmit={handleSubmit}>
+      <motion.form initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}} transition={{duration: 0.6, ease: 'easeIn'}} viewport={{once: true, amount: 0.2}} onSubmit={handleSubmit} className="dark:text-gray-300">
         <div className="mt-7">
           <label htmlFor="car-photo" className="flex items-center">
             <img
@@ -59,7 +60,7 @@ const AddCar = () => {
             onChange={handleFileChange}
             hidden
             accept=".png, .jpg, .jpeg, .gif"
-
+            
           />
         </div>
         {file && <p className="text-sm text-gray-400 mt-2">{file.name}</p>}
@@ -73,7 +74,7 @@ const AddCar = () => {
               name="car-brand"
               value={carBrand}
               onChange={(e) => setCarBrand(e.target.value)}
-              className="h-[40px] md:w-[248px] rounded text-gray-400 border border-gray-400/40 p-3 text-sm focus:outline-yellow-400/50"
+              className="h-[40px] md:w-[248px] rounded text-gray-400 dark:text-gray-300 border border-gray-400/40 p-3 text-sm focus:outline-yellow-400/50"
               placeholder="e.g BMW, Mercedes, Audi..."
               required
             />
@@ -87,7 +88,7 @@ const AddCar = () => {
               name="car-model"
               value={carModel}
               onChange={(e) => setCarModel(e.target.value)}
-              className="h-[40px] md:w-[248px] rounded text-gray-400 border border-gray-400/40 p-3 text-sm focus:outline-yellow-400/50"
+              className="h-[40px] md:w-[248px] rounded text-gray-400 dark:text-gray-300 border border-gray-400/40 p-3 text-sm focus:outline-yellow-400/50"
               placeholder="e.g X5, E-Class, M4..."
               required
             />
@@ -106,6 +107,8 @@ const AddCar = () => {
               className="text-gray-400 border border-gray-400/40 h-[40px] sm:w-[80%] md:w-[180px] text-sm p-3 rounded text-sm focus:outline-yellow-400/50"
               placeholder={`${new Date().getFullYear()}`}
               required
+              min={4}
+              max={4}
             />
           </div>
           <div>
@@ -117,7 +120,7 @@ const AddCar = () => {
               name="car-daily-price"
               value={dailyPrice}
               onChange={(e) => setDailyPrice(Number(e.target.value))}
-              className="text-gray-400 border border-gray-400/40 h-[40px] sm:w-[80%] md:w-[180px] text-sm p-3 rounded text-sm focus:outline-yellow-400/50"
+              className="text-gray-400 dark:text-gray-300 border border-gray-400/40 h-[40px] sm:w-[80%] md:w-[180px] text-sm p-3 rounded text-sm focus:outline-yellow-400/50"
               placeholder="500"
               required
             />
@@ -131,7 +134,7 @@ const AddCar = () => {
               name="car-category"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="text-gray-400 border border-gray-400/40 h-[40px] sm:w-[80%] md:w-[180px] text-sm p-3 rounded text-sm focus:outline-yellow-400/50"
+              className="text-gray-400 dark:text-gray-300 border border-gray-400/40 h-[40px] sm:w-[80%] md:w-[180px] text-sm p-3 rounded text-sm focus:outline-yellow-400/50"
               placeholder="Sedan"
               required
             />
@@ -147,7 +150,7 @@ const AddCar = () => {
               name="car-transmission"
               value={transmission}
               onChange={(e) => setTransmission(e.target.value as carTransmission)}
-              className="text-gray-400 border border-gray-400/40 h-[40px] sm:w-[80%] md:w-[180px] text-sm p-3 rounded text-sm focus:outline-yellow-400/50"
+              className="text-gray-400 dark:text-gray-300 border border-gray-400/40 h-[40px] sm:w-[80%] md:w-[180px] text-sm p-3 rounded text-sm focus:outline-yellow-400/50"
               placeholder="Automatic"
               required
             />
@@ -161,7 +164,7 @@ const AddCar = () => {
               name="car-fuel-type"
               value={fuelType}
               onChange={(e) => setFuelType(e.target.value)}
-              className="text-gray-400 border border-gray-400/40 h-[40px] sm:w-[80%] md:w-[180px] text-sm p-3 rounded text-sm focus:outline-yellow-400/50"
+              className="text-gray-400 dark:text-gray-300 border border-gray-400/40 h-[40px] sm:w-[80%] md:w-[180px] text-sm p-3 rounded text-sm focus:outline-yellow-400/50"
               placeholder="500"
               required
             />
@@ -175,7 +178,7 @@ const AddCar = () => {
               name="car-seat-capacity"
               value={seatingCapacity}
               onChange={(e) => setSeatingCapacity(Number(e.target.value))}
-              className="text-gray-400 border border-gray-400/40 h-[40px] sm:w-[80%] md:w-[180px] text-sm p-3 rounded text-sm focus:outline-yellow-400/50"
+              className="text-gray-400 dark:text-gray-300 border border-gray-400/40 h-[40px] sm:w-[80%] md:w-[180px] text-sm p-3 rounded text-sm focus:outline-yellow-400/50"
               placeholder="5"
               required
             />
@@ -187,10 +190,10 @@ const AddCar = () => {
         </div>
         <div className="mt-5">
           <label htmlFor="description">Description</label><br />
-          <textarea name="description" id="description" value={description} onChange={(e) => setDescription(e.target.value)} className="sm:w-[80%] md:w-[586px] h-[155px] rounded text-gray-400 border border-gray-400/40 p-3 text-sm focus:outline-yellow-400/50" placeholder="Describe your car, its condition, and any notable details..." required></textarea>
+          <textarea name="description" id="description"  value={description} onChange={(e) => setDescription(e.target.value)} className="sm:w-[80%] md:w-[586px] h-[155px] rounded text-gray-400 border border-gray-400/40 p-3 text-sm focus:outline-yellow-400/50 dark:text-gray-300" placeholder="Describe your car, its condition, and any notable details..." required></textarea>
         </div>
         <button type="submit" className="text-white bg-primary flex gap-2 h-[40px] w-[137px] items-center justify-center rounded mt-7 text-sm "><img src={assets.tick_icon} alt="tick icon" /> List Your Car</button>
-      </form>
+      </motion.form>
       <p></p>
     </div>
   );

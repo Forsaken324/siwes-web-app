@@ -3,6 +3,7 @@ import { assets, dummyDashboardData, dummyUserData } from "../../assets/assets";
 import type { DashboardDataPayload } from "../../interfaces/interfaces";
 import Loading from "../../common/animations/Loading";
 import RecentBookings from "../../components/adminxowner/RecentBookings";
+import { motion } from "motion/react";
 
 const Dashboard = () => {
 
@@ -18,13 +19,13 @@ const Dashboard = () => {
   }, []);
 
   return dashboardData ? (
-    <div>
+    <motion.div>
       <h1 className="text-[26px] text-black dark:text-white">{dummyUserData.isAdmin ? 'Admin' : 'Owner'} Dashboard</h1>
       <p className="text-gray-400 text-sm md:w-[400px]">
         Monitor overall platform performance including total cars, bookings,
         revenue, and recent activities
       </p>
-      <div className="flex flex-wrap gap-4 mt-10">
+      <motion.div initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}} transition={{duration: 0.6, ease: "easeOut"}} viewport={{ once: true, amount: 0.2}} className="flex flex-wrap gap-4 mt-10">
         <div className="flex items-center justify-between px-3 py-3 w-[200px] md:w-[220px] h-[77px] border border-gray-400/30 rounded">
             <div>
                 <p className="text-gray-400 text-sm">Total Cars</p>
@@ -61,9 +62,9 @@ const Dashboard = () => {
                 <img src={assets.carIconColored} alt="car icon" className="h-[25px]" />
             </div>
         </div>
-      </div>
+      </motion.div>
       <RecentBookings />
-    </div>
+    </motion.div>
   ) : (
     <Loading />
   );

@@ -28,17 +28,17 @@ const ManageBookings = () => {
     getBookings();
   }, []);
   return (
-    <motion.div initial={{scale: 0}} animate={{ scale: 1}}>
-      <h1 className="text-black text-[26px]">Manage Bookings</h1>
+    <div>
+      <h1 className="text-black dark:text-white text-[26px]">Manage Bookings</h1>
       <p className="text-sm text-gray-400">
         Track all customer bookings, approve or cancel requests, and manage
         booking statuses
       </p>
       {bookings ? (
-        <div className="overflow-hidden scroll-thin">
-          <div className="overflow-x-auto scroll-thin">
-            <table className="w-full min-w-[929px] border-separate border-spacing-0 rounded-lg rounded rounded-full mt-10 text-gray-400 border border-gray-400/40">
-              <thead className="sticky top-0 bg-white h-[60px]">
+          <motion.div initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}} transition={{duration: 0.6, ease: 'easeIn'}} viewport={{once: true, amount: 0.2}} className="overflow-hidden scroll-thin">
+            <div className="overflow-x-auto scroll-thin">
+              <table className="w-full min-w-[929px] border-separate border-spacing-0 rounded-lg rounded rounded-full mt-10 text-gray-400 border border-gray-400/40">
+              <thead className="border border-gray-400/40 h-[60px]">
                 <tr>
                   <th className="w-[400px] text-start pl-8 border-b border-gray-400/40">Car</th>
                   <th className="text-start w-[280px] border-b border-gray-400/40">Date Range</th>
@@ -88,12 +88,12 @@ const ManageBookings = () => {
               </tbody>
           </table>
           </div>
-        </div>
+        </motion.div>
 
       ) : (
         <p>No data available</p>
       )}
-    </motion.div>
+    </div>
   );
 };
 

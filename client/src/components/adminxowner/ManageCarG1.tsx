@@ -16,7 +16,7 @@ const ManageCarG1 = ({
         className="w-[40px] h-[40px] rounded rounded-lg object-cover"
       />
       <div className="flex flex-col items-start">
-        <p className="text-black">
+        <p className="text-black dark:text-white">
           {brand} {model}
         </p>
         {capacity && transmission ? (
