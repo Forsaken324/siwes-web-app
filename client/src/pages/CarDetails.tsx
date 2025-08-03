@@ -26,6 +26,24 @@ const CarDetails = () => {
     setCar(fetchedCar as CarPayload);
   };
 
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    const today = new Date();
+    if (pickupDate < today || returnDate < today) {
+      return toast("you cannot book for a date in the past", {
+        duration: 5000,
+        style: {},
+      });
+    }
+  };
+
+  const handlePickupDate = (date: Date | null) => {
+    if (date) setPickupDate(date);
+  };
+  const handleReturnDate = (date: Date | null) => {
+    if (date) setReturnDate(date);
+  };
+
   useEffect(() => {
     if (!carId) return;
     getCar(carId);
@@ -39,27 +57,10 @@ const CarDetails = () => {
     }
   }, [car?.image]);
 
+  useEffect(() => {
+    scrollTo(0, 0);
+  }, [])
   // const bookCar = async () => {}
-
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    const today = new Date();
-    if (pickupDate < today || returnDate < today)
-    {
-      return toast("you cannot book for a date in the past", {
-        duration: 5000,
-        style: {}
-      })
-    }
-  };
-
-  const handlePickupDate = (date: Date | null) => {
-    if(date) setPickupDate(date);
-  }
-  const handleReturnDate = (date: Date | null) => {
-    if (date) setReturnDate(date);
-  }
-
 
   return (
     <div className="flex flex-wrap justify-start ml-5 mr-5 md:ml-10 lg:ml-20 xl:ml-0 xl:justify-center gap-30 mt-50">
@@ -70,7 +71,10 @@ const CarDetails = () => {
               <ArrowLeft /> <Link to={"/car-search"}>Back to all cars</Link>
             </div>
             <div>
-              <div className="h-[387px] w-auto rounded-xl" ref={carImgRef}></div>
+              <div
+                className="h-[387px] w-auto rounded-xl"
+                ref={carImgRef}
+              ></div>
               <h2 className="text-black font-bold text-[30px] mt-4">
                 {car.brand} {car.model}
               </h2>
@@ -123,10 +127,10 @@ const CarDetails = () => {
               </div>
               <div className="mt-6">
                 <h3 className="font-bold text-[19.53px] mb-5">Features</h3>
-                <div className="flex gap-2">
+                <div className="flex gap-2 text-sm md:text-base">
                   <div className="flex flex-col gap-3">
                     {car.features.slice(0, 2).map((feature, index) => (
-                      <p key={index} className="flex items-start gap-2">
+                      <p key={index} className="flex items-start gap-2 text-sm">
                         <img src={assets.check_icon} alt="tic-icon" /> {feature}
                       </p>
                     ))}
@@ -151,12 +155,33 @@ const CarDetails = () => {
               <p className="text-sm text-gray-400">per day</p>
             </div>
             <hr className="text-gray-400/50 w-[85%]  mb-13" />
-            <form onSubmit={handleSubmit} id="book-car-form" className="flex flex-col justify-center">
-              <label htmlFor="pickup-date" className="font-bold">Pickup Date</label>
-              <DatePicker id="pickup-date" className="flex items-center w-[263px] h-[40px] border border-gray-400/50 rounded rounded-lg mb-5 pl-3" selected={pickupDate} onChange={(date) => handlePickupDate(date)} />
-              <label htmlFor="return-date" className="font-bold">Return Date</label>
-              <DatePicker id="return-date" className="flex items-center w-[263px] h-[40px] border border-gray-400/50 rounded rounded-lg mb-9 pl-3" selected={returnDate} onChange={(date) => handleReturnDate(date)} />
-              <button type="submit" className="bg-primary text-white w-[263px] h-[42px] rounded-lg hover:bg-primary-light duration-500 trasition">
+            <form
+              onSubmit={handleSubmit}
+              id="book-car-form"
+              className="flex flex-col justify-center"
+            >
+              <label htmlFor="pickup-date" className="font-bold">
+                Pickup Date
+              </label>
+              <DatePicker
+                id="pickup-date"
+                className="flex items-center w-[263px] h-[40px] border border-gray-400/50 rounded rounded-lg mb-5 pl-3"
+                selected={pickupDate}
+                onChange={(date) => handlePickupDate(date)}
+              />
+              <label htmlFor="return-date" className="font-bold">
+                Return Date
+              </label>
+              <DatePicker
+                id="return-date"
+                className="flex items-center w-[263px] h-[40px] border border-gray-400/50 rounded rounded-lg mb-9 pl-3"
+                selected={returnDate}
+                onChange={(date) => handleReturnDate(date)}
+              />
+              <button
+                type="submit"
+                className="bg-primary text-white w-[263px] h-[42px] rounded-lg hover:bg-primary-light duration-500 trasition"
+              >
                 Book Now
               </button>
             </form>
@@ -178,5 +203,4 @@ export default CarDetails;
 // he said to the his mother, woman, here is your son, and to the disciple, here is your mother. Who was this disciple.
 // that was the disciple that took mary the mother of Jesus into his house. Do not hold on to me, for I have not yet ascended to my father.
 
-
-// peter, james , john, thomas, matthew 
+// peter, james , john, thomas, matthew

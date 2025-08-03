@@ -13,8 +13,8 @@ const Reviews = () => {
     getReviews();
   }, []);
   return (
-    <div className="flex flex-col items-center justify-center mt-[150px] p-3 md:p-0">
-      <h2 className="text-[40px] font-bold">What Our Customers Say</h2>
+    <div className="flex flex-col items-center justify-center p-3 md:p-0 dark:bg-black">
+      <h2 className="text-[40px] font-bold dark:text-white">What Our Customers Say</h2>
       <p className="text-[16px] text-gray-400">
         Discover why discerning travelers choose Qrentals for renting luxury
         vehicles around the world.

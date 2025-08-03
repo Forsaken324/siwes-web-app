@@ -12,7 +12,7 @@ const CarSearch = () => {
     scrollTo(0,0)
   }, [])
   return (
-    <div>
+    <div className="dark:bg-black">
       <SearchHeader />
       <div className="flex flex-col items-center justify-center">
         <div>
