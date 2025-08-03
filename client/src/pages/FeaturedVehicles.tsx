@@ -5,6 +5,7 @@ import type { CarPayload } from "../interfaces/interfaces";
 import Loading from "../common/animations/Loading";
 import { MoveRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { motion } from "motion/react";
 
 const FeaturedVehicles = () => {
   const [cars, setCars] = useState<CarPayload[]>([]);
@@ -18,7 +19,7 @@ const FeaturedVehicles = () => {
     getCars();
   }, []);
   return (
-    <div className="flex flex-col justify-center items-center flex-wrap dark:bg-black dark:text-white">
+    <motion.div initial={{scale: 0}} whileInView={{ scale: 1 }} transition={{ duration: 0.5, ease: "easeOut" }} viewport={{ once: true, amount: 0.2 }} className="flex flex-col justify-center items-center flex-wrap dark:bg-black dark:text-white">
       <h2 className="text-[35px] md:text-[40px] font-bold mt-[150px]">Featured Vehicles</h2>
       <p className="text-[12px] p-3 md:p-0 md:text-[19px] md:mt-[25px]">
         Explore our selection of premium vehicles available for your next adventure
@@ -31,7 +32,7 @@ const FeaturedVehicles = () => {
         )}
       </div>
       <button className="flex justify-evenly items-center w-[180px] h-[47px] border border-gray-400/30 rounded-lg mt-[100px] hover:bg-primary hover:text-white duration-900 transition dark:bg-primary dark:text-white dark:border-0" onClick={() => navigate('/car-search')}>Explore all cars <MoveRight /></button>
-    </div>
+    </motion.div>
   );
 };
 

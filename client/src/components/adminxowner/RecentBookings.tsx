@@ -3,6 +3,7 @@ import { assets, dummyMyBookingsData } from "../../assets/assets"
 import type { BookingDataPayload } from "../../interfaces/interfaces"
 import { toSlashedDate } from "../../lib/toSlashedDate";
 import { getMonthlyRevenue } from "../../lib/getMonthlyRevenue";
+import { motion } from "motion/react";
 
 const RecentBookings = () => {
   const [bookings, _setBookings] = useState<BookingDataPayload[]>(dummyMyBookingsData.slice(0, 4));
@@ -22,9 +23,9 @@ const RecentBookings = () => {
   }
   
   return (
-    <div className="flex flex-col flex-col-reverse md:flex-row gap-7 mt-15 ">
+    <motion.div initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}} transition={{duration: 0.6, ease: "easeOut"}} viewport={{ once: true, amount: 0.2}} className="flex flex-col flex-col-reverse md:flex-row gap-7 mt-15 ">
       <div className='flex flex-col justify-center overflow-scroll md:overflow-hidden md:w-[520px] md:h-[340px] border border-gray-400/30 rounded rounded-lg p-4'>
-        <p className='text-black mx-4 mt-3'>Recent Bookings</p>
+        <p className='text-black mx-4 mt-3 dark:text-white'>Recent Bookings</p>
         <p className='text-gray-400 text-sm mx-4'>Latest customer bookings</p>
         {
           bookings.map((booking, index) => (
@@ -34,7 +35,7 @@ const RecentBookings = () => {
                   <img src={assets.listIconColored} alt="car icon" className="h-[25px]" />
                 </div>
                 <div>
-                  <p className="text-black">{booking.car.brand} {booking.car.model}</p>
+                  <p className="text-black dark:text-white">{booking.car.brand} {booking.car.model}</p>
                   <p className="text-gray text-sm">{toSlashedDate(booking.pickupDate)}</p>
                 </div>
               </div>
@@ -49,13 +50,13 @@ const RecentBookings = () => {
       <div className="flex md:w-[316px] h-[162px] rounded rounded-lg border border-gray-400/30">
         <div className="flex flex-col items-start justify-center ml-5 gap-5">
           <div>
-            <p className="text-black">Monthly Revenue</p>
+            <p className="text-black dark:text-white">Monthly Revenue</p>
             <p className="text-[12px] text-gray-400">Revenue for current month</p>
           </div>
           <p className="text-[31.5px] text-primary font-bold">{currency}{getMonthlyRevenue(bookings)}</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

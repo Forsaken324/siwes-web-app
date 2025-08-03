@@ -20,7 +20,6 @@ export const ThemeProvider = ({ children }: ChildrenInterface) => {
     const initialTheme = storedTheme || "light";
     document.documentElement.classList.remove('light', 'dark');
     document.documentElement.classList.add(initialTheme);
-    document.body.style.backgroundColor = initialTheme === 'dark' ? 'black' : 'white';
     setTheme(initialTheme);
     if (!storedTheme) {
       localStorage.setItem("theme", initialTheme);

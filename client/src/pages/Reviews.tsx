@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { dummyReviews } from "../assets/assets";
 import type { ReviewsPayload } from "../interfaces/interfaces";
 import ReviewCard from "../components/ReviewCard";
+import { motion } from "motion/react";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState<ReviewsPayload[]>([]);
@@ -19,11 +20,11 @@ const Reviews = () => {
         Discover why discerning travelers choose Qrentals for renting luxury
         vehicles around the world.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-15 mt-[70px]">
+      <motion.div initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}} transition={{duration: 1, ease: "easeOut"}} viewport={{ once: true, amount: 0.2}} className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-15 mt-[70px]">
         {reviews.map((customer, index) => (
           <ReviewCard key={index} customer={customer} />
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

@@ -32,6 +32,10 @@ const App = () => {
     
   }, []);
 
+  useEffect(() => {
+    document.body.style.backgroundColor = theme === 'dark' ? 'black' : 'white';
+  }, [theme])
+
   return (
     <>
       <Toaster />

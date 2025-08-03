@@ -3,6 +3,7 @@ import SearchHeader from "../components/SearchHeader";
 import { dummyCarData } from "../assets/assets";
 import CarCard from "../components/CarCard";
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
 
 
 const CarSearch = () => {
@@ -20,11 +21,11 @@ const CarSearch = () => {
             Showing{" "}
             {carsLength > 1 ? `${carsLength} cars` : `${carsLength} car`}
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <motion.div initial={{scale: 0}} animate={{scale:1}} transition={{duration: 0.6, ease: 'easeIn'}} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {dummyCarData.map((car, index) => (
               <Link key={index}  to={`/car-details/${car._id}`}><CarCard car={car} /></Link>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

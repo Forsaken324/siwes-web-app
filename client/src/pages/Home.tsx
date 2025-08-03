@@ -7,6 +7,7 @@ import FeaturedVehicles from "./FeaturedVehicles";
 import AboutBanner from "./AboutBanner";
 import Reviews from "./Reviews";
 import NewsLetter from "./NewsLetter";
+import {motion} from "motion/react";
 
 const Home = () => {
   const date = new Date();
@@ -130,7 +131,9 @@ const Home = () => {
             Search
           </button>
         </div>
-        <img src={assets.main_car} alt="" />
+        <motion.div initial={{ x: "100vw" }} animate={{ x: 0 }} transition={{ duration: 1.5, ease: "easeOut" }}>
+          <img src={assets.main_car} alt="" />
+        </motion.div>
       </div>
       <FeaturedVehicles />
       <AboutBanner />

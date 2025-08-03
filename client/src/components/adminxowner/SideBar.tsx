@@ -25,9 +25,9 @@ const SideBar = () => {
             alt={userData.name}
             className="w-[56px] h-[56px] rounded-full"
           />
-          <p className="p-1 md:p-0 font-bold">{dummyUserData.name}</p>
+          <p className="p-1 md:p-0 font-bold dark:text-gray-300">{dummyUserData.name}</p>
         </div>
-        <div className="md:w-[200px] flex flex-col">
+        <div className="md:w-[200px] flex flex-col dark:text-gray-300">
           <hr className="w-full text-gray-400/30 mt-3" />
           {ownerMenuLinks.map((link, index) => (
             <NavLink

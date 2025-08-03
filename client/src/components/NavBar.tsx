@@ -1,5 +1,5 @@
 import { assets } from "../assets/assets";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { SearchIcon, Menu, XIcon, MoonIcon, SunIcon } from "lucide-react";
 import { useState } from "react";
 import useAuth from "../hooks/useAuth";
@@ -11,7 +11,6 @@ const NavBar = () => {
   const { isLoggedIn } = useAuth();
   const [searchValue, setSearchValue] = useState<string>("");
   const { theme, changeTheme } = useTheme();
-  const isMainApp = useLocation().pathname.startsWith('/owner');
 
   const handleLinkClick = () => {
     scrollTo(0, 0);
@@ -19,7 +18,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 z-50 w-full flex items-center justify-between md:justify-evenly border border-b-light-gray dark:border-0 border-t-0 border-r-0 border-l-0 bg-white dark:bg-black">
+    <nav className="fixed top-0 left-0 z-50 w-full flex items-center justify-between md:justify-evenly border border-b-light-gray dark:border-gray-700 border-t-0 border-r-0 border-l-0 bg-white dark:bg-black py-3 md:py-0">
       <Menu
         className={`max-md:ml-4 md:hidden w-8 h-8 cursor-pointer dark:text-white`}
         onClick={() => setMenuOpen(true)}
@@ -72,8 +71,8 @@ const NavBar = () => {
             />
             <SearchIcon className="mr-5" />
           </div>
-          <Link to={"/car-search"} onClick={handleLinkClick} className="">
-            List cars
+          <Link to={"/owner"} onClick={handleLinkClick} className="">
+            List car
           </Link>
         </div>
       </div>
