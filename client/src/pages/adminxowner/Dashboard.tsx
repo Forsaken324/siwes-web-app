@@ -19,7 +19,7 @@ const Dashboard = () => {
 
   return dashboardData ? (
     <div>
-      <h1 className="text-[26px] text-black">{dummyUserData.isAdmin ? 'Admin' : 'Owner'} Dashboard</h1>
+      <h1 className="text-[26px] text-black dark:text-white">{dummyUserData.isAdmin ? 'Admin' : 'Owner'} Dashboard</h1>
       <p className="text-gray-400 text-sm md:w-[400px]">
         Monitor overall platform performance including total cars, bookings,
         revenue, and recent activities
@@ -28,7 +28,7 @@ const Dashboard = () => {
         <div className="flex items-center justify-between px-3 py-3 w-[200px] md:w-[220px] h-[77px] border border-gray-400/30 rounded">
             <div>
                 <p className="text-gray-400 text-sm">Total Cars</p>
-                <p className="font-bold text-[24px]">{dashboardData.totalCars}</p>
+                <p className="font-bold text-[24px] dark:text-white">{dashboardData.totalCars}</p>
             </div>
             <div className="flex items-center justify-center w-[38px] h-[38px] rounded-full bg-primary/20">
                 <img src={assets.carIconColored} alt="car icon" className="h-[25px]" />
@@ -37,7 +37,7 @@ const Dashboard = () => {
         <div className="flex items-center justify-between px-3 py-3 w-[200px] md:w-[220px] h-[77px] border border-gray-400/30 rounded">
             <div>
                 <p className="text-gray-400 text-sm">Total Bookings</p>
-                <p className="font-bold text-[24px]">{dashboardData.totalBookings}</p>
+                <p className="font-bold text-[24px] dark:text-white">{dashboardData.totalBookings}</p>
             </div>
             <div className="flex items-center justify-center w-[38px] h-[38px] rounded-full bg-primary/20">
                 <img src={assets.listIconColored} alt="car icon" className="h-[25px]" />
@@ -46,7 +46,7 @@ const Dashboard = () => {
         <div className="flex items-center justify-between px-3 py-3 w-[200px] md:w-[220px] h-[77px] border border-gray-400/30 rounded">
             <div>
                 <p className="text-gray-400 text-sm">Pending Bookings</p>
-                <p className="font-bold text-[24px]">{dashboardData.pendingBookings}</p>
+                <p className="font-bold text-[24px] dark:text-white">{dashboardData.pendingBookings}</p>
             </div>
             <div className="flex items-center justify-center w-[38px] h-[38px] rounded-full bg-primary/20">
                 <img src={assets.cautionIconColored} alt="car icon" className="h-[25px]" />
@@ -55,7 +55,7 @@ const Dashboard = () => {
         <div className="flex items-center justify-between px-3 py-3 w-[200px] md:w-[220px] h-[77px] border border-gray-400/30 rounded">
             <div>
                 <p className="text-gray-400 text-sm">Completed Bookings</p>
-                <p className="font-bold text-[24px]">{dashboardData.completedBookings}</p>
+                <p className="font-bold text-[24px] dark:text-white">{dashboardData.completedBookings}</p>
             </div>
             <div className="flex items-center justify-center w-[38px] h-[38px] rounded-full bg-primary/20">
                 <img src={assets.carIconColored} alt="car icon" className="h-[25px]" />

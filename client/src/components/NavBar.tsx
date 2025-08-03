@@ -19,7 +19,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 z-50 w-full flex items-center justify-between md:justify-evenly border border-b-light-gray dark:border-0 border-t-0 border-r-0 border-l-0 bg-white dark:bg-black">
+    <nav className="fixed top-0 left-0 z-50 w-full flex items-center justify-between md:justify-evenly border border-b-light-gray dark:border-gray-700 border-t-0 border-r-0 border-l-0 bg-white dark:bg-black py-3 md:py-0">
       <Menu
         className={`max-md:ml-4 md:hidden w-8 h-8 cursor-pointer dark:text-white`}
         onClick={() => setMenuOpen(true)}
@@ -72,8 +72,8 @@ const NavBar = () => {
             />
             <SearchIcon className="mr-5" />
           </div>
-          <Link to={"/car-search"} onClick={handleLinkClick} className="">
-            List cars
+          <Link to={"/owner"} onClick={handleLinkClick} className="">
+            List car
           </Link>
         </div>
       </div>
