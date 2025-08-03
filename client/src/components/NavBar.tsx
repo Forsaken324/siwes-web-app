@@ -1,5 +1,5 @@
 import { assets } from "../assets/assets";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { SearchIcon, Menu, XIcon, MoonIcon, SunIcon } from "lucide-react";
 import { useState } from "react";
 import useAuth from "../hooks/useAuth";
@@ -11,7 +11,6 @@ const NavBar = () => {
   const { isLoggedIn } = useAuth();
   const [searchValue, setSearchValue] = useState<string>("");
   const { theme, changeTheme } = useTheme();
-  const isMainApp = useLocation().pathname.startsWith('/owner');
 
   const handleLinkClick = () => {
     scrollTo(0, 0);

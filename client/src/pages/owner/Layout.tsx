@@ -1,4 +1,3 @@
-import MainNav from '../../components/adminxowner/MainNav'
 import SideBar from '../../components/adminxowner/SideBar'
 import { Outlet } from 'react-router-dom'
 

@@ -4,7 +4,6 @@ import type { CarPayload } from "../../interfaces/interfaces";
 import ManageCarG1 from "../../components/adminxowner/ManageCarG1";
 import type { carTransmission } from "../../types/types";
 import { EyeClosedIcon, EyeIcon, Trash2Icon } from "lucide-react";
-import { div } from "motion/react-client";
 import { motion } from "motion/react";
 
 const ManageCars = () => {
