@@ -1,6 +1,7 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 
 import { Toaster } from "react-hot-toast";
+import { Analytics } from "@vercel/analytics/next";
 
 import NavBar from "./components/NavBar";
 
@@ -40,6 +41,7 @@ const App = () => {
     <>
       <Toaster />
       <NavBar />
+      <Analytics />
       {/* {!isAdminRoute && <MobileSearchBar />} */}
       <Routes>
         <Route path="/" element={<Home />} />
